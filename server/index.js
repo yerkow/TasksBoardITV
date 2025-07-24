@@ -17,7 +17,7 @@ const prisma = new PrismaClient();
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const server = https.createServer(app);
+const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origin: "https://tasks.abai-it.kz",
