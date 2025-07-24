@@ -1,13 +1,18 @@
-FROM node:20-alpine AS build
+FROM node:18-alpine AS build
 
-RUN apk add --no-cache openssl
+WORKDIR /app
+COPY . .
+RUN npm install
+RUN npm run build
+
+FROM node:18-alpine
 
 WORKDIR /app
 
-COPY . .
-RUN npm install
+RUN npm install -g serve
 
-RUN npx prisma generate
-RUN npm run build
+COPY --from=build /app/dist ./dist
 
-CMD ["npm", "run", "start"]
+EXPOSE 3000
+
+CMD ["serve", "-s", "dist", "-l", "3000"]
