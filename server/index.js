@@ -817,9 +817,6 @@ const startServers = () => {
     console.log(`🚀 HTTP сервер с WebSocket запущен на порту ${HTTP_PORT}`);
     console.log(`📊 API доступно по адресу: http://localhost:${HTTP_PORT}/api`);
     console.log(`🔌 WebSocket доступен по адресу: ws://localhost:${HTTP_PORT}`);
-    console.log(
-      `🔌 WebSocket доступен по адресу: ws://${localIP}:${HTTP_PORT}`,
-    );
   });
 
   console.log("");
