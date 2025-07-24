@@ -16,10 +16,5 @@ COPY . .
 
 RUN npx prisma generate
 
-FROM gcr.io/distroless/nodejs20-debian12 AS production
-WORKDIR /app
-
-COPY --from=builder . .
-
 ENV HOSTNAME="0.0.0.0"
-CMD ["index.js"]
+CMD ["node", "index.js"]
