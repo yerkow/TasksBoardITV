@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "node dev-with-urls.cjs",
     "dev:full": "node start-dev.cjs",
+    "start": "vite preview",
     "start:dev": "concurrently \"cd server && node index.js\" \"npm run dev\"",
     "start:prod": "concurrently \"cd server && node index.js\" \"npm run preview\"",
     "setup": "npm install && cd server && npm install && cd .. && prisma generate",
